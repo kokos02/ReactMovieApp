@@ -174,7 +174,8 @@ section {
 
 /* Results ~^ */
 
-.popup {
+
+/* .selectedMovie {
     position: fixed;
     top: 0;
     left: 0;
@@ -182,9 +183,9 @@ section {
     height: 100vh;
     background-color: #445565;
     overflow-y: scroll;
-}
+} */
 
-.popup .content {
+.selectedMovie .content {
     flex-direction: column;
     display: flex;
     width: 100%;
@@ -194,45 +195,45 @@ section {
     color: #fff;
 }
 
-.popup .content h2 {
+.selectedMovie .content h2 {
     font-size: 28px;
     font-weight: 600;
     padding: 15px 15px;
 }
 
-.popup .content h2 span {
+.selectedMovie .content h2 span {
     font-weight: 300;
     font-size: 20px;
 }
 
-.popup .content .rating {
+.selectedMovie .content .rating {
     margin-bottom: 30px;
 }
 
-.popup .content .plot {
+.selectedMovie .content .plot {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0px -15px 30px;
 }
 
-.popup .content .plot img {
+.selectedMovie .content .plot img {
     flex: 1 1 50%;
     width: 100%;
     max-width: 450px;
     padding: 0px 15px;
 }
 
-.popup .content .plot h5 {
+.selectedMovie .content .plot h5 {
     padding: 0px 15px;
 }
 
-.popup .content .plot p {
+.selectedMovie .content .plot p {
     flex: 1 1 50%;
     padding: 15px;
 }
 
-.popup .content .close {
+.selectedMovie .content .close {
     width: fit-content;
     justify-content: center;
     display: flex;
@@ -249,9 +250,9 @@ section {
     transition: 0.4s ease-out;
 }
 
-.popup .content .close:hover {
+.selectedMovie .content .close:hover {
     background: #223343;
 }
 
 
-/* Popup ~^ */
+/* selectedMovie ~^ */
