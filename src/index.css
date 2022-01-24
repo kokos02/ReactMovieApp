@@ -24,6 +24,12 @@ header h1 {
     text-align: center;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    display: contents;
+}
+
 
 /* header ~^ */
 
