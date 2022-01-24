@@ -23,7 +23,7 @@ function App() {
 
   //Search procedure, we apend the term to the end of the url and then we fill the relults table with the new results
   const search = (e) =>{
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.type == "click") {
       axios(apiSearchUrl + "&query=" + state.searchTerm).then(({ data }) => {
         let results = data.results;
 
