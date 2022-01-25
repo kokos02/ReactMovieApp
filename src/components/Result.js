@@ -13,11 +13,12 @@ function Result({ result, getSelected }) {
   //Here we render the image and the title and if clicked we pass the id of the movie to the selectedMovie
   return (
 
-    <motion.div initial={{ x: '100vw' }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className='resultContainer'>
+    <motion.div initial={{ x: '100vw' }} animate={{ x: 0 }} transition={{ duration: 0.3 }}
+    whileHover={{scale: 1.05, originX: 0, color: '#fff'}} className='resultContainer'>
 
       <Link to={"/result"}>
         <div className='image' onClick={() => getSelected(result.id)}>
-          <motion.img className='resultImage' src={imageUrl} alt={result.title} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1.6 }} />
+          <motion.img className='resultImage' src={imageUrl} alt={result.title} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 1.8 }} />
         </div>
       </Link>
 
@@ -25,7 +26,7 @@ function Result({ result, getSelected }) {
         <div className='text' onClick={() => getSelected(result.id)}>
           <h3>{result.title}</h3>
           <p>{result.overview}</p>
-          {(result.release_date != null) ? <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }}>{result.release_date.substring(0, 4)}</motion.p> : false}
+          {(result.release_date != null) ? <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 1 }}>{result.release_date.substring(0, 4)}</motion.p> : false}
         </div>
       </Link>
 

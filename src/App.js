@@ -1,19 +1,17 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 
 import Search from "./components/Search";
 import Results from "./components/Results";
 import SelectedMovie from "./components/selectedMovie";
-import Home from "./components/Home";
-
-// let history = useHistory();
-// history.push("/search");
 
 
 function App() {
+
+  const location = useLocation();
   //Initial state with empty search term, no results and no selected movie
   const [state, setState] = useState({
     searchTerm: "",
@@ -75,27 +73,44 @@ function App() {
     });
   }
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+    }
+  }
+
+  const scaleEffect = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.3,
+        yoyo: 6
+      }
+    }
+  }
+
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <header>
-          <Link to={"/"} onClick={() => getPopular()}>
-            <motion.h1 initial={{ y: '100vw' }} animate={{ y: 0 }} transition={{ duration: 1 }}>Movies Flix</motion.h1>
-          </Link>
-        </header>
-        <main>
-          <Routes>
+    <motion.div variants={[container]} initial="hidden" animate="show" className="App">
+      <header>
+        <Link to={"/"} onClick={() => getPopular()}>
+          <motion.h1 variants={scaleEffect} whileHover="hover" initial={{ y: '50vw' }} animate={{ y: 0 }} transition={{ type: 'spring', stiffness: 40 }}>Movies Flix</motion.h1>
+        </Link>
+      </header>
+      <main>
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.key}>
 
             <Route exact path="/" element={<><Search handleInput={handleInput} search={search} />
               <Results results={state.results} getSelected={getSelected} /></>} />
 
             <Route path="/result" element={<>{(typeof state.selected.title != "undefined") ? <SelectedMovie selected={state.selected} /> : false}</>} />
-            
+
           </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+        </AnimatePresence>
+      </main>
+    </motion.div>
   );
 }
 
