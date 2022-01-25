@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 function results({ results, getSelected }) {
 
     const exitAnimation = {
-        exit: {
+        hidden: { x: '-100vw' },
+        show: {
+            x:0,
+            transition: { duration: 0.2 }
+        }, exit: {
             x: '100vw',
             transition: { ease: 'easeInOut' }
         }
@@ -16,9 +20,11 @@ function results({ results, getSelected }) {
     return (
         <motion.section className='results'
             variants={exitAnimation}
+            initial="hidden"
+            animate="show"
             exit="exit">
-            {results.map(result => (
-                <Result key={result.id} result={result} getSelected={getSelected} />
+            {results.map((result, index) => (
+                <Result key={result.id} result={result} getSelected={getSelected} index={index} arrayLength={results.length} />
             ))}
         </motion.section>
     )

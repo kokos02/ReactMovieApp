@@ -84,8 +84,8 @@ function App() {
     hover: {
       scale: 1.1,
       transition: {
-        duration: 0.3,
-        yoyo: 6
+        duration: 0.5,
+        repeat: 2
       }
     }
   }

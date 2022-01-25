@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 
 const scaleEffect ={
   hover: {
-    scale: 1.05,
+    scale: 1.02,
     transition:{
-      duration: 0.3,
-      yoyo: 2
+      duration: 0.5,
+      repeat: 1
     }
   }
 }
