@@ -12,6 +12,7 @@ import SelectedMovie from "./components/selectedMovie";
 function App() {
 
   const location = useLocation();
+
   //Initial state with empty search term, no results and no selected movie
   const [state, setState] = useState({
     searchTerm: "",
@@ -92,14 +93,18 @@ function App() {
 
 
   return (
+
     <motion.div variants={[container]} initial="hidden" animate="show" className="App">
+
       <header>
         <Link to={"/"} onClick={() => getPopular()}>
           <motion.h1 variants={scaleEffect} whileHover="hover" initial={{ y: '50vw' }} animate={{ y: 0 }} transition={{ type: 'spring', stiffness: 40 }}>Movies Flix</motion.h1>
         </Link>
       </header>
+
       <main>
         <AnimatePresence exitBeforeEnter>
+
           <Routes location={location} key={location.key}>
 
             <Route exact path="/" element={<><Search handleInput={handleInput} search={search} />
@@ -108,8 +113,11 @@ function App() {
             <Route path="/result" element={<>{(typeof state.selected.title != "undefined") ? <SelectedMovie selected={state.selected} /> : false}</>} />
 
           </Routes>
+
         </AnimatePresence>
+
       </main>
+
     </motion.div>
   );
 }

@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 function results({ results, getSelected }) {
 
-    const exitAnimation = {
+    const animation = {
         hidden: { x: '-100vw' },
         show: {
-            x:0,
+            x: 0,
             transition: { duration: 0.2 }
         }, exit: {
             x: '100vw',
@@ -19,7 +19,7 @@ function results({ results, getSelected }) {
     //from the json to extract the result and the key which we pass to each single result we construct
     return (
         <motion.section className='results'
-            variants={exitAnimation}
+            variants={animation}
             initial="hidden"
             animate="show"
             exit="exit">
